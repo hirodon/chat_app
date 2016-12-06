@@ -2,12 +2,28 @@ var app = require('http').createServer(handler),
 io = require('socket.io').listen(app),
 fs = require('fs'),
 url = require('url'),
-qs = require('querystring');
+qs = require('querystring'),
+ejs = require('ejs'),
+n = 0;
+var top = fs.readFileSync(__dirname + '/public_html/top.ejs','utf-8');
+var room = fs.readFileSync(__dirname + '/public_html/room.ejs','utf-8');
 //app.listen(25494);//学校のサーバーの時
 app.listen(80);//自分のサーバーの時
 function handler(req,res){
+  n++;
   var req_url = req.url;
   console.log(req_url);
+  if (req_url == "" || req_url =="/") {
+    fs.readFile(__dirname +'/top.html', 'UTF-8', function(err, data){
+        if (err) {
+          res.writeHead(500);
+          return res.end('Error');
+        }
+        res.writeHead(200);
+        res.write(data);
+        res.end();
+    });
+  }
   if(req.method=='GET'){
         // tojson
     var param_json = url.parse(req.url, true).query;
@@ -18,26 +34,40 @@ function handler(req,res){
 
     if(param_json.id == 1){
       console.log("id=1");
-      fs.readFile(__dirname +'/top.html', 'UTF-8', function(err, data){
-        if (err) {
-          res.writeHead(500);
-          return res.end('Error');
-        }
-        res.writeHead(200);
+        var data = ejs.render(top,{
+                title :"hello",
+                content : "<strong>world</strong>",
+                n : n
+        });
+        res.writeHead(200, {'Content-Type': 'text/html'});
         res.write(data);
         res.end();
-      });
+      // fs.readFile(__dirname +'/top.html', 'UTF-8', function(err, data){
+      //   if (err) {
+      //     res.writeHead(500);
+      //     return res.end('Error');
+      //   }
+      //   res.writeHead(200);
+      //   res.write(data);
+      //   res.end();
+      // });
     }else if(param_json.id == '2'){
       console.log("id=2");
-      fs.readFile(__dirname + '/room.html',function(err,data){
-        if (err) {
-          res.writeHead(500);
-          return res.end('Error');
-        }
-        res.writeHead(200);
+      var data = ejs.render(room,{
+                room :param_json.room
+        });
+        res.writeHead(200, {'Content-Type': 'text/html'});
         res.write(data);
         res.end();
-      });
+      // fs.readFile(__dirname + '/room.html',function(err,data){
+      //   if (err) {
+      //     res.writeHead(500);
+      //     return res.end('Error');
+      //   }
+      //   res.writeHead(200);
+      //   res.write(data);
+      //   res.end();
+      // });
     }
     console.log("pg end");
   }
