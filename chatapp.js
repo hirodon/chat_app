@@ -7,6 +7,7 @@ qs = require('querystring');
 app.listen(80);//自分のサーバーの時
 function handler(req,res){
   var req_url = req.url;
+  console.log(req_url);
   if(req.method=='GET'){
         // tojson
     var param_json = url.parse(req.url, true).query;
