@@ -6,11 +6,11 @@
         $("#chatLogs").append("<div>" + text + "</div>");
     }
 
-    $("form").submit(function(e){
+    $("#msg-form").submit(function(e){
         var message = $("#msgForm").val();
         $("#msgForm").val('');
         socket.emit("client_to_server", {value : message});
-        window.location.href = "?id=2&" + "name=" $('#lg_username').val() + "&" + "room=" + $('#room-select').val();
+        //window.location.href = "?id=2&" + "name=" $('#lg_username').val() + "&" + "room=" + $('#room-select').val();
         e.preventDefault();
         return false;
     });
