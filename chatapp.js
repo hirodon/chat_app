@@ -48,26 +48,26 @@ function handler(req,res){
       res.end();
     });
   }else if ('/lib/bootstrap/css/bootstrap.min.css' == req_url) {
-    fs.readFile('./css/style.css', 'UTF-8', function (err, data) {
+    fs.readFile('./lib/bootstrap/css/bootstrap.min.css', 'UTF-8', function (err, data) {
       res.writeHead(200, {'Content-Type': 'text/css'});
       res.write(data);
       res.end();
     });
   }else if ('/lib/jquery/jquery.js' == req_url) {
-    fs.readFile('./css/style.css', 'UTF-8', function (err, data) {
-      res.writeHead(200, {'Content-Type': 'text/css'});
+    fs.readFile('./lib/jquery/jquery.js', 'UTF-8', function (err, data) {
+      res.writeHead(200, {'Content-Type': 'text/javascript'});
       res.write(data);
       res.end();
     });
   }else if ('/lib/bootstrap/js/bootstrap.min.js' == req_url) {
-    fs.readFile('./css/style.css', 'UTF-8', function (err, data) {
-      res.writeHead(200, {'Content-Type': 'text/css'});
+    fs.readFile('./lib/bootstrap/js/bootstrap.min.js', 'UTF-8', function (err, data) {
+      res.writeHead(200, {'Content-Type': 'text/javascript'});
       res.write(data);
       res.end();
     });
   }else if ('/js/main.js' == req_url) {
-    fs.readFile('./css/style.css', 'UTF-8', function (err, data) {
-      res.writeHead(200, {'Content-Type': 'text/css'});
+    fs.readFile('./js/main.js', 'UTF-8', function (err, data) {
+      res.writeHead(200, {'Content-Type': 'text/javascript'});
       res.write(data);
       res.end();
     });
