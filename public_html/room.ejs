@@ -12,17 +12,17 @@
     </div>
     <div id="main">
         <div id="tab">
-            <div class="logo">Room 1</div>
+            <div class="logo">Room <%= room %></div>
         </div>
         <div class="chat-area">
-            <div id="chatLogs"></div>
+            <div id="chatLogs"></div><!-- チャットのログを表示 -->
         </div>
         <div class="msg-form-1">
             <form id="msg-form" class="text-left">
                 <div class="main-msg-form">
                     <div class="msg-group">
                         <div class="msg-form-group">
-                            <input type="text" class="msg-form-control" id="lg_username" name="lg_username" placeholder="message">
+                            <input type="text" class="msg-form-control" id="msgForm" name="msg" placeholder="message">
                         </div>
                         <div class="msg-form-group">
                         </div>
@@ -37,5 +37,6 @@
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/socketio.js"></script>
 </body>
 </html>

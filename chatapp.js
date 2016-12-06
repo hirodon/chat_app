@@ -43,7 +43,7 @@ function handler(req,res){
     }else if(param_json.id == '2'){
       console.log("id=2");
       var data = ejs.render(room,{
-                room :param_json.room
+                room :param_json.rooms
         });
         res.writeHead(200, {'Content-Type': 'text/html'});
         res.write(data);
@@ -86,6 +86,12 @@ function handler(req,res){
     });
   }else if ('/js/main.js' == req_url) {
     fs.readFile('./js/main.js', 'UTF-8', function (err, data) {
+      res.writeHead(200, {'Content-Type': 'text/javascript'});
+      res.write(data);
+      res.end();
+    });
+  }else if ('/js/socketio.js' == req_url) {
+    fs.readFile('./js/socketio.js', 'UTF-8', function (err, data) {
       res.writeHead(200, {'Content-Type': 'text/javascript'});
       res.write(data);
       res.end();
