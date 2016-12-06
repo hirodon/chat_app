@@ -25,7 +25,6 @@ function handler(req,res){
         res.write(data);
         res.end();
       });
-      });
     }else if(param_json.id == '2'){
       console.log("id=2");
       fs.readFile(__dirname + '/room.html',function(err,data){
