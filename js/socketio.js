@@ -1,4 +1,6 @@
-    var socket = io.connect();
+$(function(){
+
+        var socket = io.connect();
 
     socket.on("server_to_client", function(data){appendMsg(data.value)});
 
@@ -14,3 +16,7 @@
         e.preventDefault();
         return false;
     });
+});
+
+
+
