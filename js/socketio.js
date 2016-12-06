@@ -3,7 +3,7 @@ $(function(){
     var params    = url.split("?");
     var spparams   = params[1].split("&");
     var paramArray = [];
-    var socket = io.connect("http://localhost:80");
+    var socket = io.connect();
     // socket.on("server_to_client", function(data){appendMsg(data.value)});
     // function appendMsg(text) {
     //     $("#chatLogs").append("<div>" + text + "</div>");
