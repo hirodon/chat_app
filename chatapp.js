@@ -43,7 +43,7 @@ function handler(req,res){
     }else if(param_json.id == '2'){
       console.log("id=2");
       var data = ejs.render(room,{
-                room :param_json.rooms
+                room :param_json.room
         });
         res.writeHead(200, {'Content-Type': 'text/html'});
         res.write(data);

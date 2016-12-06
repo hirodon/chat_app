@@ -23,8 +23,8 @@ $(function(){
                 e.preventDefault();
                 socket.json.emit('emit_from_client',{
                     msg : $('#msg').val(),
-                    name : paramArray["lg_username"],
-                    room : paramArray["rooms"]
+                    name : paramArray["name"],
+                    room : paramArray["room"]
 
                 });
                 $('#msg').val('').focus();
