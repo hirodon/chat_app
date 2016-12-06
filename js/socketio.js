@@ -3,6 +3,11 @@ $(function(){
     var params    = url.split("?");
     var spparams   = params[1].split("&");
     var paramArray = [];
+    for ( i = 0; i < spparams.length; i++ ) {
+        vol = spparams[i].split("=");
+        paramArray.push(vol[0]);
+        paramArray[vol[0]] = vol[1];
+    }
     var socket = io.connect();
     // socket.on("server_to_client", function(data){appendMsg(data.value)});
     // function appendMsg(text) {
