@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TagChat</title>
+</head>
+<body>
+    <form id="myForm">
+    <select id="rooms">
+        <option value="room-1">Room 1</option>
+        <option value="room-2">Room 2</option>
+    </select>
+     <input type="text" id="name">
+        <input type="text" id="msg">
+        <input type="submit" value="Send!">
+    </form>
+    <ul id="logs"></ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        $(function(){
+            var socket = io.connect();
+            //emit イベントを発信している
+            //on  イベントを待ち受けている
+            $('#myForm').submit(function(e){
+                e.preventDefault();
+                socket.json.emit('emit_from_client',{
+                    msg : $('#msg').val(),
+                    name : $('#name').val(),
+                    room : $('#rooms').val()
+
+                });
+                $('#msg').val('').focus();
+            });
+            socket.on('emit_from_server',function(data){
+                $('#logs').append($('<li>').text(data));
+            });
+        });
+    </script>
+
+</body>
+</html>
