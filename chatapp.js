@@ -6,6 +6,7 @@ qs = require('querystring');
 //app.listen(25494);//学校のサーバーの時
 app.listen(80);//自分のサーバーの時
 function handler(req,res){
+  var req_url = req.url;
   if(req.method=='GET'){
         // tojson
     var param_json = url.parse(req.url, true).query;
@@ -38,6 +39,13 @@ function handler(req,res){
       });
     }
     console.log("pg end");
+  }
+  if ('./css/style.css' == req_url) {
+    fs.readFile('./css/style.css', 'UTF-8', function (err, data) {
+      res.writeHead(200, {'Content-Type': 'text/css'});
+      res.write(data);
+      res.end();
+    });
   }
   // fs.readFile(__dirname + '/index.html',function(err,data){
   //   if (err) {
