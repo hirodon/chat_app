@@ -34,15 +34,15 @@ function handler(req,res){
     }
     console.log("pg end");
   }
-  fs.readFile(__dirname + '/index.html',function(err,data){
-    if (err) {
-      res.writeHead(500);
-      return res.end('Error');
-    }
-    res.writeHead(200);
-    res.write(data);
-    res.end();
-  });
+  // fs.readFile(__dirname + '/index.html',function(err,data){
+  //   if (err) {
+  //     res.writeHead(500);
+  //     return res.end('Error');
+  //   }
+  //   res.writeHead(200);
+  //   res.write(data);
+  //   res.end();
+  // });
 }
 io.sockets.on('connection',function(socket){
   socket.on('emit_from_client',function(data){
