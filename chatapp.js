@@ -13,18 +13,7 @@ function handler(req,res){
   n++;
   var req_url = req.url;
   console.log(req_url);
-  if (req_url == "" || req_url =="/") {
-    fs.readFile(__dirname +'/top.html', 'UTF-8', function(err, data){
-        if (err) {
-          res.writeHead(500);
-          return res.end('Error');
-        }
-        res.writeHead(200);
-        res.write(data);
-        res.end();
-    });
-  }
-  if(req.method=='GET'){
+  if(req.method=='GET'||req_url == "" || req_url =="/"){
         // tojson
     var param_json = url.parse(req.url, true).query;
     console.log(param_json);
@@ -32,7 +21,7 @@ function handler(req,res){
         // querystring
         //var hoge = url.parse(req.url).query;
 
-    if(param_json.id == 1){
+    if(param_json.id == 1||req_url == "" || req_url =="/"){
       console.log("id=1");
         var data = ejs.render(top,{
                 title :"hello",
