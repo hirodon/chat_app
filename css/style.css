@@ -54,30 +54,78 @@ a:hover {
 .chat-area{
   height: 380px;
   border-bottom: solid 1px #999999;
+
 }
 
-#myself-chat{
-  margin: auto;
-  margin-right: 0px;
-  background:#595;
-  text-align: right;
-  max-width: 80%;
+
+
+/*自分のチャットログ*/
+.myself-chat{
+  
+  float:right;
+  width: 100%;
+  border-radius:15px 15px;
+  margin-bottom: 3%;
 }
-#myself-comment{
-  color: #ddd;
-  background: #66dd33;
+.myself-chat p{
   text-align: left;
+  font-size: 13px;
+}
+.myself-comment{
+  display:inline;
   height: auto;
-    margin-right: 0px;
-/*  margin: auto;
-*/
+  /*background: #66dd33;*/
+  background:#595;
+  max-width: 80%;
+  word-break:break-all;
+  text-align:left;
+  float: right;
+  border-radius:15px 15px;
+  padding-left: 7px;
+  padding-bottom: 1px;
+  padding-right: 4px;
+
 }
-#myself-comment span{
+.myself-comment span{
+  float: left;
+  width: 100%;
+}
+
+
+
+
+/*相手のチャットログ*/
+.yourself-chat{
+  /*background:#595;*/
+  float:left;
+  width: 100%;
+  border-radius:15px 15px;
+  margin-bottom: 3%;
+}
+.yourself-chat p{
   text-align: left;
-  width: auto;
-  margin-right: 0px;
-  background:#090;
+  font-size: 13px;
 }
+.yourself-comment{
+  display:inline;
+  height: auto;
+  background: #66dd33;
+  max-width: 80%;
+  word-break:break-all;
+  text-align:left;
+  float: left;
+  border-radius:15px 15px;
+  padding-left: 7px;
+  padding-bottom: 1px;
+  padding-right: 4px;
+
+}
+.yourself-comment span{
+  float: left;
+  width: 100%;
+}
+
+
 
 
 /*=== 4. Main Form ===*/
