@@ -53,12 +53,12 @@ a:hover {
 
 .chat-area{
   height: 380px;
+  overflow: auto;
   border-bottom: solid 1px #999999;
 
 }
 
 #chatLogs{
-  overflow: auto;
 }
 
 /*自分のチャットログ*/

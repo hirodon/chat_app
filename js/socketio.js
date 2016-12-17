@@ -8,6 +8,11 @@ $(function(){
         paramArray.push(vol[0]);
         paramArray[vol[0]] = vol[1];
     }
+    function bottom_scroll(){
+        setTimeout(function() {
+        window.scroll(0,$('#chatLogs').height());
+    },0);
+    }
     var socket = io.connect();
     // socket.on("server_to_client", function(data){appendMsg(data.value)});
     // function appendMsg(text) {
@@ -40,10 +45,12 @@ $(function(){
                     '</div>' +
                     '</div>');
                 $('#msg').val('').focus();
+                bottom_scroll();
             });
             socket.on('emit_from_server',function(data){
 
                 $('#chatLogs').append(data);
+                bottom_scroll();
             });
 });
 
