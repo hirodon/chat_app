@@ -10,7 +10,7 @@ $(function(){
     }
     function bottom_scroll(){
         setTimeout(function() {
-        window.scroll(0,$('#chatLogs').height());
+        window.scroll(0,$('.chat-area').get(0).scrollHeight);
         console.log($('#chatLogs').height());
         console.log($('.chat-area').height())
         console.log($('.chat-area').get(0).scrollHeight);
