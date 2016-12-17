@@ -57,7 +57,9 @@ a:hover {
 
 }
 
-
+#chatLogs{
+  overflow: auto;
+}
 
 /*自分のチャットログ*/
 .myself-chat{
