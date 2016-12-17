@@ -13,6 +13,8 @@ $(function(){
         window.scroll(0,$('#chatLogs').height());
         console.log($('#chatLogs').height());
         console.log($('.chat-area').height())
+        console.log($('.chat-area').get(0).scrollHeight);
+        console.log($('#chatLogs').get(0).scrollHeight);
     },0);
     }
     var socket = io.connect();
