@@ -111,14 +111,22 @@ io.sockets.on('connection',function(socket){
   socket.on('emit_from_client',function(data){
     socket.join(data.room);
         //socket.emit('emit_from_server','you are in ' + data.room);
-        socket.broadcast.to(data.room).emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);
         socket.client_name = data.name;
+        //socket.broadcast.to(data.room).emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);
+        socket.broadcast.to(data.room).emit('emit_from_server',
+          '<div  class="yourself-chat">' +
+          '<div class="yourself-comment">' +
+          '<p>'+ socket.client_name +'</p>' +
+          '<span>'+ data.msg +'</span>' +
+          '</div>' +
+          '</div>');
+        
         //io.sockets.emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg)
        // console.log(data);
        //接続しているソケットのみ
        //socket.emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);
        //接続しているソケット以外全部
-       socket.broadcast.emit('emit_from_server','hello from srver: ' + data);
+       //socket.broadcast.emit('emit_from_server','hello from srver: ' + data);
        //接続しているソケット全部
        //io.sockets.emit('emit_from_server','[' + socket.id + ']: ' + data);
      });

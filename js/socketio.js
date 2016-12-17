@@ -32,11 +32,18 @@ $(function(){
                     room : paramArray["room"]
 
                 });
+                $('#chatLogs').append(
+                    '<div  class="yourself-chat">' +
+                    '<div class="yourself-comment">' +
+                    '<p>'+ paramArray["name"] +'</p>' +
+                    '<span>'+ $('#msg').val() +'</span>' +
+                    '</div>' +
+                    '</div>');
                 $('#msg').val('').focus();
             });
             socket.on('emit_from_server',function(data){
-                
-                $('#chatLogs').append("<div>" + data + "</div>");
+
+                $('#chatLogs').append(data);
             });
 });
 
