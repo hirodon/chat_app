@@ -33,8 +33,8 @@ $(function(){
 
                 });
                 $('#chatLogs').append(
-                    '<div  class="yourself-chat">' +
-                    '<div class="yourself-comment">' +
+                    '<div  class="myself-chat">' +
+                    '<div class="myself-comment">' +
                     '<p>'+ paramArray["name"] +'</p>' +
                     '<span>'+ $('#msg').val() +'</span>' +
                     '</div>' +
