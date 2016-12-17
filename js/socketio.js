@@ -11,6 +11,8 @@ $(function(){
     function bottom_scroll(){
         setTimeout(function() {
         window.scroll(0,$('#chatLogs').height());
+        console.log($('#chatLogs').height());
+        console.log($('.chat-area').height())
     },0);
     }
     var socket = io.connect();
