@@ -35,6 +35,7 @@ $(function(){
                 $('#msg').val('').focus();
             });
             socket.on('emit_from_server',function(data){
+                
                 $('#chatLogs').append("<div>" + data + "</div>");
             });
 });

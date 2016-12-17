@@ -116,9 +116,9 @@ io.sockets.on('connection',function(socket){
         //io.sockets.emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg)
        // console.log(data);
        //接続しているソケットのみ
-       socket.emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);
+       //socket.emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);
        //接続しているソケット以外全部
-       //socket.broadcast.emit('emit_from_server','hello from srver: ' + data);
+       socket.broadcast.emit('emit_from_server','hello from srver: ' + data);
        //接続しているソケット全部
        //io.sockets.emit('emit_from_server','[' + socket.id + ']: ' + data);
      });
