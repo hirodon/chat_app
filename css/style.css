@@ -56,9 +56,28 @@ a:hover {
   border-bottom: solid 1px #999999;
 }
 
-
-
-
+#myself-chat{
+  margin: auto;
+  margin-right: 0px;
+  background:#595;
+  text-align: right;
+  max-width: 80%;
+}
+#myself-comment{
+  color: #ddd;
+  background: #66dd33;
+  text-align: left;
+  height: auto;
+    margin-right: 0px;
+/*  margin: auto;
+*/
+}
+#myself-comment span{
+  text-align: left;
+  width: auto;
+  margin-right: 0px;
+  background:#090;
+}
 
 
 /*=== 4. Main Form ===*/
