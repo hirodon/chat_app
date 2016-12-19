@@ -10,7 +10,7 @@ var room = fs.readFileSync(__dirname + '/public_html/room.ejs','utf-8');
 //app.listen(25494);//学校のサーバーの時
 app.listen(80);//自分のサーバーの時
 function handler(req,res){
-  n++;
+  
   var req_url = req.url;
   console.log(req_url);
   if(req.method=='GET'||req_url == "" || req_url =="/"){
@@ -42,6 +42,7 @@ function handler(req,res){
       // });
     }else if(param_json.id == '2'){
       console.log("id=2");
+      n++;
       var data = ejs.render(room,{
                 room :param_json.room
         });
@@ -108,6 +109,7 @@ function handler(req,res){
   // });
 }
 io.sockets.on('connection',function(socket){
+  socket.broadcast.emit("online", { id: socket.id });
   socket.on('emit_from_client',function(data){
     socket.join(data.room);
     socket.client_name = data.name;
