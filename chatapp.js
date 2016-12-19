@@ -110,8 +110,9 @@ function handler(req,res){
 }
 io.sockets.on('connection',function(socket){
   socket.on('online_client',function(data){
+    var client_name = url.parse(data.name, true).query;
     socket.join(data.room);
-    socket.client_name = data.name;
+    socket.client_name = client_name;
     socket.broadcast.to(data.room).emit("online", 
       '<div class="chat-alert" >' +
       '<p>' + data.name + 'が入室しました。</p>' +
@@ -119,15 +120,17 @@ io.sockets.on('connection',function(socket){
     );
   });
   socket.on('offline_client',function(data){
+    var client_name = url.parse(data.name, true).query;
     socket.broadcast.to(data.room).emit("offline", 
       '<div class="chat-alert" >' +
-      '<p>' + data.name + 'が退室しました。</p>' +
+      '<p>' + client_name + 'が退室しました。</p>' +
       '</div>' 
     );
   });
   socket.on('emit_from_client',function(data){
     // socket.join(data.room);
-    socket.client_name = data.name;
+    var client_name = url.parse(data.name, true).query;
+    socket.client_name = client_name;
     //socket.emit('emit_from_server','you are in ' + data.room);
     //socket.broadcast.to(data.room).emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);
     socket.broadcast.to(data.room).emit('emit_from_server',
