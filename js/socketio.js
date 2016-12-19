@@ -56,6 +56,11 @@ $(function(){
                 $('#chatLogs').append(data);
                 bottom_scroll();
             });
+            socket.on("online", function (obj) {
+                //println("online id: " + obj.id);
+                $('#chatLogs').append(data);
+                bottom_scroll();
+            });
 });
 
 

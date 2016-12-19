@@ -110,16 +110,26 @@ function handler(req,res){
 io.sockets.on('connection',function(socket){
   socket.on('emit_from_client',function(data){
     socket.join(data.room);
-        //socket.emit('emit_from_server','you are in ' + data.room);
-        socket.client_name = data.name;
-        //socket.broadcast.to(data.room).emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);
-        socket.broadcast.to(data.room).emit('emit_from_server',
-          '<div  class="yourself-chat">' +
-          '<div class="yourself-comment">' +
-          '<p>'+ socket.client_name +'</p>' +
-          '<span>'+ data.msg +'</span>' +
-          '</div>' +
-          '</div>');
+    socket.client_name = data.name;
+    socket.broadcast.to(data.room).emit("online", 
+      '<div  class="yourself-chat">' +
+      '<div class="yourself-comment">' +
+      '<p>'+ socket.client_name +'</p>' +
+      '<span>'+ socket.client_name +'が入室しました</span>' +
+      '</div>' +
+      '</div>'
+    );
+    //socket.emit('emit_from_server','you are in ' + data.room);
+    
+    //socket.broadcast.to(data.room).emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);
+    socket.broadcast.to(data.room).emit('emit_from_server',
+      '<div  class="yourself-chat">' +
+      '<div class="yourself-comment">' +
+      '<p>'+ socket.client_name +'</p>' +
+      '<span>'+ data.msg +'</span>' +
+      '</div>' +
+      '</div>'
+    );
         
         //io.sockets.emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg)
        // console.log(data);
@@ -129,5 +139,6 @@ io.sockets.on('connection',function(socket){
        //socket.broadcast.emit('emit_from_server','hello from srver: ' + data);
        //接続しているソケット全部
        //io.sockets.emit('emit_from_server','[' + socket.id + ']: ' + data);
-     });
+  });
+
 });
