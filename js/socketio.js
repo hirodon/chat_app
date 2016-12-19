@@ -8,6 +8,7 @@ $(function(){
         paramArray.push(vol[0]);
         paramArray[vol[0]] = vol[1];
     }
+    paramArray["name"] = decodeURI(paramArray["name"]);
     function bottom_scroll(){
         setTimeout(function() {
         $('.chat-area').scroll(0,$('.chat-area').get(0).scrollHeight);
@@ -19,7 +20,7 @@ $(function(){
     }
     var socket = io.connect();
     socket.json.emit('online_client',{
-        name : paramArray["name"].toString(),
+        name : paramArray["name"],
         room : paramArray["room"]
     });
     $('#chatLogs').append(
@@ -29,7 +30,7 @@ $(function(){
     );
     $(window).on("beforeunload", function() {
         socket.json.emit('offline_client',{
-            name : paramArray["name"].toString(),
+            name : paramArray["name"],
             room : paramArray["room"]
         });
         // return "本当に遷移しちゃう？";
@@ -40,7 +41,7 @@ $(function(){
         e.preventDefault();
         socket.json.emit('emit_from_client',{
             msg : $('#msg').val(),
-            name : paramArray["name"].toString(),
+            name : paramArray["name"],
             room : paramArray["room"]
         });
         $('#chatLogs').append(
