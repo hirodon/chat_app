@@ -42,7 +42,7 @@ function handler(req,res){
       // });
     }else if(param_json.id == '2'){
       console.log("id=2");
-      n++;
+      
       var data = ejs.render(room,{
                 room :param_json.room
         });
@@ -117,6 +117,7 @@ io.sockets.on('connection',function(socket){
       '<p>' + data.name + 'が入室しました。</p>' +
       '</div>' 
     );
+    n++;
   });
   socket.on('offline_client',function(data){
     socket.broadcast.to(data.room).emit("offline", 
@@ -124,6 +125,7 @@ io.sockets.on('connection',function(socket){
       '<p>' + data.name + 'が退室しました。</p>' +
       '</div>' 
     );
+    n--;
   });
   socket.on('emit_from_client',function(data){
     // socket.join(data.room);
