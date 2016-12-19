@@ -18,6 +18,10 @@ $(function(){
     },0);
     }
     var socket = io.connect();
+    socket.json.emit('online_client',{
+        name : paramArray["name"],
+        room : paramArray["room"]
+    });
     // socket.on("server_to_client", function(data){appendMsg(data.value)});
     // function appendMsg(text) {
     //     $("#chatLogs").append("<div>" + text + "</div>");
@@ -39,7 +43,6 @@ $(function(){
                     msg : $('#msg').val(),
                     name : paramArray["name"],
                     room : paramArray["room"]
-
                 });
                 $('#chatLogs').append(
                     '<div  class="myself-chat">' +
@@ -56,7 +59,7 @@ $(function(){
                 $('#chatLogs').append(data);
                 bottom_scroll();
             });
-            socket.on("online", function (obj) {
+            socket.on("online", function (data) {
                 //println("online id: " + obj.id);
                 $('#chatLogs').append(data);
                 bottom_scroll();

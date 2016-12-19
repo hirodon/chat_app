@@ -109,20 +109,20 @@ function handler(req,res){
   // });
 }
 io.sockets.on('connection',function(socket){
-  socket.broadcast.emit("online", { id: socket.id });
-  socket.on('emit_from_client',function(data){
-    socket.join(data.room);
-    socket.client_name = data.name;
+  socket.on('online_client',function(data){
     socket.broadcast.to(data.room).emit("online", 
       '<div  class="yourself-chat">' +
       '<div class="yourself-comment">' +
-      '<p>'+ socket.client_name +'</p>' +
-      '<span>'+ socket.client_name +'が入室しました</span>' +
+      '<p>'+ data.name +'</p>' +
+      '<span>'+ data.name +'が入室しました</span>' +
       '</div>' +
       '</div>'
     );
+  });
+  socket.on('emit_from_client',function(data){
+    socket.join(data.room);
+    socket.client_name = data.name;
     //socket.emit('emit_from_server','you are in ' + data.room);
-    
     //socket.broadcast.to(data.room).emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);
     socket.broadcast.to(data.room).emit('emit_from_server',
       '<div  class="yourself-chat">' +
