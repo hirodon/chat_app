@@ -118,6 +118,13 @@ io.sockets.on('connection',function(socket){
       '</div>' 
     );
   });
+  socket.on('offline_client',function(data){
+    socket.broadcast.to(data.room).emit("offline", 
+      '<div class="chat-alert" >' +
+      '<p>' + data.name + 'が退室しました。</p>' +
+      '</div>' 
+    );
+  });
   socket.on('emit_from_client',function(data){
     // socket.join(data.room);
     socket.client_name = data.name;
