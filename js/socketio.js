@@ -31,6 +31,7 @@ $(function(){
         socket.json.emit('offline_client',{
             name : paramArray["name"]
         });
+        return "本当に遷移しちゃう？";
     });
     //emit イベントを発信している
     //on  イベントを待ち受けている
