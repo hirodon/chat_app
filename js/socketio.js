@@ -20,7 +20,7 @@ $(function(){
     var socket = io.connect();
     socket.json.emit('online_client',{
         name : paramArray["name"].toString(),
-        room : paramArray["room"];
+        room : paramArray["room"]
     });
     $('#chatLogs').append(
         '<div class="chat-alert" >' +
