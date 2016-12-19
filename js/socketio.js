@@ -29,9 +29,10 @@ $(function(){
     );
     $(window).on("beforeunload", function() {
         socket.json.emit('offline_client',{
-            name : paramArray["name"]
+            name : paramArray["name"],
+            room : paramArray["room"]
         });
-        return "本当に遷移しちゃう？";
+        // return "本当に遷移しちゃう？";
     });
     //emit イベントを発信している
     //on  イベントを待ち受けている
