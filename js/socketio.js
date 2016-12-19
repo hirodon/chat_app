@@ -19,8 +19,8 @@ $(function(){
     }
     var socket = io.connect();
     socket.json.emit('online_client',{
-        name : paramArray["name"],
-        room : paramArray["room"]
+        name : paramArray["name"].toString(),
+        room : paramArray["room"];
     });
     $('#chatLogs').append(
         '<div class="chat-alert" >' +
@@ -29,7 +29,7 @@ $(function(){
     );
     $(window).on("beforeunload", function() {
         socket.json.emit('offline_client',{
-            name : paramArray["name"],
+            name : paramArray["name"].toString(),
             room : paramArray["room"]
         });
         // return "本当に遷移しちゃう？";
@@ -40,7 +40,7 @@ $(function(){
         e.preventDefault();
         socket.json.emit('emit_from_client',{
             msg : $('#msg').val(),
-            name : paramArray["name"],
+            name : paramArray["name"].toString(),
             room : paramArray["room"]
         });
         $('#chatLogs').append(
