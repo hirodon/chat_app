@@ -113,12 +113,9 @@ io.sockets.on('connection',function(socket){
     socket.join(data.room);
     socket.client_name = data.name;
     socket.broadcast.to(data.room).emit("online", 
-      '<div  class="yourself-chat">' +
-      '<div class="yourself-comment">' +
-      '<p>'+ data.name +'</p>' +
-      '<span>'+ data.name +'が入室しました</span>' +
-      '</div>' +
-      '</div>'
+      '<div class="chat-alert" >' +
+      '<p>' + data.name + 'が入室しました。</p>' +
+      '</div>' 
     );
   });
   socket.on('emit_from_client',function(data){

@@ -23,12 +23,10 @@ $(function(){
         room : paramArray["room"]
     });
     $('#chatLogs').append(
-        '<div  class="myself-chat">' +
-        '<div class="myself-comment">' +
-        '<p>'+ paramArray["name"] +'</p>' +
-        '<span>'+ paramArray["room"] + "に入室しました。" +'</span>' +
-        '</div>' +
-        '</div>');
+        '<div class="chat-alert" >' +
+      '<p>Room' + paramArray["room"] + 'に入室しました。</p>' +
+      '</div>' 
+    );
     // socket.on("server_to_client", function(data){appendMsg(data.value)});
     // function appendMsg(text) {
     //     $("#chatLogs").append("<div>" + text + "</div>");
