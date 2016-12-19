@@ -110,6 +110,8 @@ function handler(req,res){
 }
 io.sockets.on('connection',function(socket){
   socket.on('online_client',function(data){
+    socket.join(data.room);
+    socket.client_name = data.name;
     socket.broadcast.to(data.room).emit("online", 
       '<div  class="yourself-chat">' +
       '<div class="yourself-comment">' +
@@ -120,7 +122,7 @@ io.sockets.on('connection',function(socket){
     );
   });
   socket.on('emit_from_client',function(data){
-    socket.join(data.room);
+    // socket.join(data.room);
     socket.client_name = data.name;
     //socket.emit('emit_from_server','you are in ' + data.room);
     //socket.broadcast.to(data.room).emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);

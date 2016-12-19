@@ -22,6 +22,13 @@ $(function(){
         name : paramArray["name"],
         room : paramArray["room"]
     });
+    $('#chatLogs').append(
+        '<div  class="myself-chat">' +
+        '<div class="myself-comment">' +
+        '<p>'+ paramArray["name"] +'</p>' +
+        '<span>'+ paramArray["room"] + "に入室しました。" +'</span>' +
+        '</div>' +
+        '</div>');
     // socket.on("server_to_client", function(data){appendMsg(data.value)});
     // function appendMsg(text) {
     //     $("#chatLogs").append("<div>" + text + "</div>");
@@ -52,17 +59,16 @@ $(function(){
                     '</div>' +
                     '</div>');
                 $('#msg').val('').focus();
-                bottom_scroll();
+                // bottom_scroll();
             });
             socket.on('emit_from_server',function(data){
-
                 $('#chatLogs').append(data);
-                bottom_scroll();
+                // bottom_scroll();
             });
             socket.on("online", function (data) {
                 //println("online id: " + obj.id);
                 $('#chatLogs').append(data);
-                bottom_scroll();
+                // bottom_scroll();
             });
 });
 
