@@ -11,11 +11,7 @@ $(function(){
     paramArray["name"] = decodeURI(paramArray["name"]);
     function bottom_scroll(){
         setTimeout(function() {
-        $('.chat-area').scroll(0,$('.chat-area').get(0).scrollHeight);
-        console.log($('#chatLogs').height());
-        console.log($('.chat-area').height())
-        console.log($('.chat-area').get(0).scrollHeight);
-        console.log($('#chatLogs').get(0).scrollHeight);
+        $('.chat-area').scrollTop($('.chat-area').get(0).scrollHeight);
     },0);
     }
     var socket = io.connect();
@@ -28,12 +24,12 @@ $(function(){
       '<p>Room' + paramArray["room"] + 'に入室しました。</p>' +
       '</div>' 
     );
+    bottom_scroll();
     $(window).on("beforeunload", function() {
         socket.json.emit('offline_client',{
             name : paramArray["name"],
             room : paramArray["room"]
         });
-        // return "本当に遷移しちゃう？";
     });
     //emit イベントを発信している
     //on  イベントを待ち受けている
@@ -53,21 +49,21 @@ $(function(){
             '</div>'
         );
         $('#msg').val('').focus();
-        // bottom_scroll();
+        bottom_scroll();
     });
     socket.on('emit_from_server',function(data){
         $('#chatLogs').append(data);
-        // bottom_scroll();
+        bottom_scroll();
     });
     socket.on("online", function (data) {
         //println("online id: " + obj.id);
         $('#chatLogs').append(data);
-        // bottom_scroll();
+        bottom_scroll();
     });
     socket.on("offline", function (data) {
         //println("online id: " + obj.id);
         $('#chatLogs').append(data);
-        // bottom_scroll();
+        bottom_scroll();
     });
 });
 

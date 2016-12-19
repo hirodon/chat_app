@@ -28,7 +28,7 @@
 
  -->
 
-<div class="chat-area">
+<div class="chat-area" id="target">
     <div id="chatLogs">
 
 
@@ -99,7 +99,7 @@
             </div>
         </div>
 
-
+<div id="testes"></div>
     </div>
 </div>
 <div class="msg-form-1">
@@ -124,6 +124,14 @@
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        $(function(){
+            $('#msg-form').submit(function(e){
+                e.preventDefault();
+                $('.chat-area').scrollTop($('.chat-area').get(0).scrollHeight);
+            });
+        });
+    </script>
 
 </body>
 </html>
