@@ -98,7 +98,7 @@ $(function(){
 
             switch(command){
                 case "color":
-                    $(".yourself-comment").css("color","#" + value);
+                    $(".yourself-comment span").css("color","#" + value);
                     console.log('color changed');
                 break;
                 case "background":
