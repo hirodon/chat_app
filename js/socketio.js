@@ -88,7 +88,7 @@ $(function(){
                 }
             }
             command = command.split('');
-            for(var i = command.length; comment_array.length > i-1;i++ ){
+            for(var i = command.length; comment_array.length > i;i++ ){
                 value += comment_array[i];
             }
             //alue = value.split('');
@@ -104,7 +104,7 @@ $(function(){
                     $("body").css("background",value);
                 break;
                 default:
-                    chat_alert("読み込みに失敗しました。");
+                    chat_alert("コマンドの読み込みに失敗しました。");
                 break;
             }
         }
