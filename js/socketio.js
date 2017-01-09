@@ -97,9 +97,9 @@ $(function(){
             console.log(comment_array);
 
             switch(command){
-                case "color":
-                    $("#comment-span").css("color","#" + value);
-                    console.log('color changed');
+                case "background-image":
+                    $("body").css("background-image","#" + value);
+                    console.log('background-image changed');
                 break;
                 case "background":
                     $("body").css("background","#" + value);
