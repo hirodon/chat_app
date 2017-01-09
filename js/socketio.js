@@ -98,7 +98,10 @@ $(function(){
 
             switch(command){
                 case "background-image":
-                    $("body").css("background-image","#" + value);
+                    //$("body").css("background-image","#" + value);
+                    $('body').append(
+                        '<img src="'+value+'">'
+                        );
                     console.log('background-image changed');
                 break;
                 case "background":
