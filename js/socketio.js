@@ -91,9 +91,11 @@ $(function(){
             for(var i = command.length; comment_array.length > i;i++ ){
                 value += comment_array[i];
             }
-            value = value.split('');
+            //alue = value.split('');
+            command = command.join('');
             console.log(command +':'+value);
             console.log(comment_array[0]);
+
             switch(command){
                 case "color":
                     $(".yourself-comment").css("color",value);
