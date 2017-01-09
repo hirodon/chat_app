@@ -60,6 +60,9 @@ a:hover {
 
 #chatLogs{
 }
+#add-img{
+  text-align: center;
+}
 .chat-alert{
   width: 100%;
   float: right;
