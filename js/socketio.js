@@ -87,9 +87,11 @@ $(function(){
                     break;
                 }
             }
+            command = command.split('');
             for(var i = command.length; commnet_array.length < i;i++ ){
                 value += commnet_array[i];
             }
+            value = value.split('');
             console.log(command[0] +':'+value);
             switch(command){
                 case "color":
