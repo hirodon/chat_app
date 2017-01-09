@@ -68,6 +68,13 @@ $(function(){
         $('#chatLogs').append(data);
         bottom_scroll();
     });
+    function chat_alert(text){
+        $('#chatLogs').append(
+            '<div class="chat-alert" >' +
+            '<p>' + text + '</p>' +
+            '</div>' 
+        );
+    }
     function command(comment){
         var command = "";
         var value = "";
@@ -82,7 +89,7 @@ $(function(){
             for(var i = command.length; comment.length < i;i++ ){
                 value += comment[i];
             }
-            console.log(command +':'+value);
+            console.log(command[0] +':'+value);
             switch(command){
                 case "color":
                     $(".yourself-comment").css("color",value);
