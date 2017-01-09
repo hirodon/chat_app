@@ -98,11 +98,11 @@ $(function(){
 
             switch(command){
                 case "color":
-                    $(".yourself-comment").css("color",value);
+                    $(".yourself-comment").css("color","#"value);
                     console.log('color changed');
                 break;
                 case "background":
-                    $("body").css("background",value);
+                    $("body").css("background","#"value);
                 break;
                 default:
                     chat_alert("コマンドの読み込みに失敗しました。");
