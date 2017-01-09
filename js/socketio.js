@@ -76,6 +76,7 @@ $(function(){
         );
     }
     function command(comment){
+        comment = plitByLength(comment, 1);
         var command = "";
         var value = "";
         if (comment[0] == "#") {
