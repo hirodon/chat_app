@@ -84,17 +84,16 @@ $(function(){
                 if (comment_array[i] == ":" || comment_array.length == i) {
                     break;
                 }else{
-                    
                     command += comment_array[i];
                 }
             }
             command = command.split('');
-            for(var i = command.length; comment_array.length > i;i++ ){
+            for(var i = command.length-1; comment_array.length > i;i++ ){
                 value += comment_array[i];
             }
             //alue = value.split('');
             command = command.join('');
-            console.log(command +':dd'+value);
+            console.log(command +':'+value);
             console.log(comment_array);
 
             switch(command){
