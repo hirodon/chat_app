@@ -80,7 +80,7 @@ $(function(){
         var command = "";
         var value = "";
         if (comment_array[0] == "#") {
-            for (var i = 0; comment_array.length > i; i++) {
+            for (var i = 1; comment_array.length > i; i++) {
                 if (comment_array[i] != ":" || comment_array.length != i) {
                     command += comment_array[i];
                 }else{
@@ -88,7 +88,7 @@ $(function(){
                 }
             }
             command = command.split('');
-            for(var i = command.length; comment_array.length > i;i++ ){
+            for(var i = command.length; comment_array.length > i-1;i++ ){
                 value += comment_array[i];
             }
             //alue = value.split('');
