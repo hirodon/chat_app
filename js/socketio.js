@@ -94,7 +94,7 @@ $(function(){
             //alue = value.split('');
             command = command.join('');
             console.log(command +':'+value);
-            console.log(comment_array[0]);
+            console.log(comment_array);
 
             switch(command){
                 case "color":
