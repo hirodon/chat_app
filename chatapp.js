@@ -97,6 +97,19 @@ function handler(req,res){
       res.write(data);
       res.end();
     });
+  }else if ('/js/command.js' == req_url) {
+    fs.readFile('./js/socketio.js', 'UTF-8', function (err, data) {
+      res.writeHead(200, {'Content-Type': 'text/javascript'});
+      res.write(data);
+      res.end();
+    });
+  }
+  else if ('/js/chat_alert.js' == req_url) {
+    fs.readFile('./js/socketio.js', 'UTF-8', function (err, data) {
+      res.writeHead(200, {'Content-Type': 'text/javascript'});
+      res.write(data);
+      res.end();
+    });
   }
   // fs.readFile(__dirname + '/index.html',function(err,data){
   //   if (err) {
