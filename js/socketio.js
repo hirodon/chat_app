@@ -88,7 +88,7 @@ $(function(){
                 }
             }
             command = command.split('');
-            for(var i = command.length-1; comment_array.length > i;i++ ){
+            for(var i = command.length+2; comment_array.length > i;i++ ){
                 value += comment_array[i];
             }
             //alue = value.split('');
