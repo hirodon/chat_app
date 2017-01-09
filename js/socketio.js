@@ -76,19 +76,19 @@ $(function(){
         );
     }
     function command(comment){
-        comment = comment.split('');
+        var commnet_array = comment.split('');
         var command = "";
         var value = "";
-        if (comment[0] == "#") {
-            for (var i = 0; comment.length < i; i++) {
-                if (comment[i] != ":" || comment.length != i) {
-                    command += comment[i];
+        if (commnet_array[0] == "#") {
+            for (var i = 0; commnet_array.length < i; i++) {
+                if (commnet_array[i] != ":" || commnet_array.length != i) {
+                    command += commnet_array[i];
                 }else{
                     break;
                 }
             }
-            for(var i = command.length; comment.length < i;i++ ){
-                value += comment[i];
+            for(var i = command.length; commnet_array.length < i;i++ ){
+                value += commnet_array[i];
             }
             console.log(command[0] +':'+value);
             switch(command){
