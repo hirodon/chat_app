@@ -48,7 +48,7 @@ $(function(){
             '</div>' +
             '</div>'
         );
-        commmand($('#msg').val());
+        command($('#msg').val());
         $('#msg').val('').focus();
 
         bottom_scroll();
