@@ -146,12 +146,17 @@ io.sockets.on('connection',function(socket){
     //socket.emit('emit_from_server','you are in ' + data.room);
     //socket.broadcast.to(data.room).emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg);
     socket.broadcast.to(data.room).emit('emit_from_server',
-      '<div  class="yourself-chat">' +
+      {
+            msg : '<div  class="yourself-chat">' +
       '<div class="yourself-comment">' +
       '<p>'+ socket.client_name +'</p>' +
       '<span>'+ data.msg +'</span>' +
       '</div>' +
-      '</div>'
+      '</div>',
+            name : socket.client_name,
+            comment : data.msg
+        }
+      
     );
         
         //io.sockets.emit('emit_from_server','[' + socket.client_name + ']: ' + data.msg)

@@ -1,5 +1,5 @@
 $(function(){
-	function(comment){
+	function command(comment){
 		var command = "";
 		var value = "";
 		if (comment[0] == "#") {

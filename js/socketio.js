@@ -48,11 +48,14 @@ $(function(){
             '</div>' +
             '</div>'
         );
+        commmand($('#msg').val());
         $('#msg').val('').focus();
+
         bottom_scroll();
     });
     socket.on('emit_from_server',function(data){
-        $('#chatLogs').append(data);
+        $('#chatLogs').append(data.msg);
+        command(data.comment);
         bottom_scroll();
     });
     socket.on("online", function (data) {
