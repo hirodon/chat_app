@@ -76,23 +76,24 @@ $(function(){
         );
     }
     function command(comment){
-        var commnet_array = comment.split('');
+        var comment_array = comment.split('');
         var command = "";
         var value = "";
-        if (commnet_array[0] == "#") {
-            for (var i = 0; commnet_array.length < i; i++) {
-                if (commnet_array[i] != ":" || commnet_array.length != i) {
-                    command += commnet_array[i];
+        if (comment_array[0] == "#") {
+            for (var i = 0; comment_array.length < i; i++) {
+                if (comment_array[i] != ":" || comment_array.length != i) {
+                    command += comment_array[i];
                 }else{
                     break;
                 }
             }
             command = command.split('');
-            for(var i = command.length; commnet_array.length < i;i++ ){
-                value += commnet_array[i];
+            for(var i = command.length; comment_array.length < i;i++ ){
+                value += comment_array[i];
             }
             value = value.split('');
-            console.log(command[0] +':'+value);
+            console.log(command +':'+value);
+            console.log(comment_array[0]);
             switch(command){
                 case "color":
                     $(".yourself-comment").css("color",value);
