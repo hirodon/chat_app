@@ -93,7 +93,7 @@ $(function(){
             }
             //alue = value.split('');
             command = command.join('');
-            console.log(command +':'+value);
+            console.log(command +':dd'+value);
             console.log(comment_array);
 
             switch(command){
