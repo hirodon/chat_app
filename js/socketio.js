@@ -88,7 +88,7 @@ $(function(){
                 }
             }
             command = command.split('');
-            for(var i = command.length+2; comment_array.length > i;i++ ){
+            for(var i = command.length + 2; comment_array.length > i;i++ ){
                 value += comment_array[i];
             }
             //alue = value.split('');
@@ -99,6 +99,7 @@ $(function(){
             switch(command){
                 case "color":
                     $(".yourself-comment").css("color",value);
+                    console.log('color changed');
                 break;
                 case "background":
                     $("body").css("background",value);
