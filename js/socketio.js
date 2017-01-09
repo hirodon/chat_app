@@ -44,7 +44,7 @@ $(function(){
             '<div  class="myself-chat">' +
             '<div class="myself-comment">' +
             '<p>'+ paramArray["name"] +'</p>' +
-            '<span>'+ $('#msg').val() +'</span>' +
+            '<span id="comment-span">'+ $('#msg').val() +'</span>' +
             '</div>' +
             '</div>'
         );
@@ -98,7 +98,7 @@ $(function(){
 
             switch(command){
                 case "color":
-                    $(".yourself-comment span").css("color","#" + value);
+                    $("#comment-span").css("color","#" + value);
                     console.log('color changed');
                 break;
                 case "background":
