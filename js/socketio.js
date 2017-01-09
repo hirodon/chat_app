@@ -81,10 +81,11 @@ $(function(){
         var value = "";
         if (comment_array[0] == "#") {
             for (var i = 1; comment_array.length > i; i++) {
-                if (comment_array[i] != ":" || comment_array.length != i) {
-                    command += comment_array[i];
-                }else{
+                if (comment_array[i] == ":" || comment_array.length == i) {
                     break;
+                }else{
+                    
+                    command += comment_array[i];
                 }
             }
             command = command.split('');
